@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test suite" parallel="tests">
+    <test name="Test package 1">
+        <classes>
+            <class name="CreateProjectTest" />
+            <class name="LogInTest" />
+            <class name="LogOutTest" />
+        </classes>
+    </test> <!-- Test -->
+</suite>

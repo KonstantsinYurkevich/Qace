@@ -25,7 +25,7 @@ public abstract class BaseTest {
         password = System.getenv().getOrDefault("QASE_PASSWORD", PropertyReader.getProperty("qase.password"));
         Configuration.browser = "chrome";
         Configuration.clickViaJs = true;
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.startMaximized = true;
         Configuration.timeout = 10000;
         logInPage = new LogInPage(driver);
