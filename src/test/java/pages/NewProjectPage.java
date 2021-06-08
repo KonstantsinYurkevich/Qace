@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class NewProjectPage extends BasePage{
+public class NewProjectPage extends BasePage {
 
     public NewProjectPage(WebDriver driver) {
         super(driver);

@@ -1,11 +1,10 @@
-
 import modals.Project;
 import modals.ProjectFactory;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
 
-public class CreateProjectTest extends BaseTest{
+public class CreateProjectTest extends BaseTest {
     @Test
     public void projectShouldBeCreated() {
 
