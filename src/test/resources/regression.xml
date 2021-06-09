@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test suite" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="utils.AnnotationTransformer"/>
+    </listeners>
+    <test name="Test package 1">
+        <classes>
+            <class name="CreateProjectTest"/>
+        </classes>
+    </test>
+    <test name="Test package 2">
+        <classes>
+            <class name="LogInTest"/>
+            <class name="LogOutTest"/>
+        </classes>
+    </test>
+    <!-- Test -->
+</suite>
