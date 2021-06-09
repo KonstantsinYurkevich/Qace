@@ -1,7 +1,6 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 
@@ -16,25 +15,29 @@ public class ProjectsPage extends BasePage {
     }
 
     @Override
-    public SelenideElement IsPageOpened() {
-        return $("#createButton").should(Condition.exist);
+    public boolean IsPageOpened() {
+        return $("#createButton").isDisplayed();
     }
 
+    @Step("Opening projects page ")
     public ProjectsPage openPage() {
-        log.info("Opening LogIn page");
+        log.info("Opening projects page");
         open("/projects");
         return new ProjectsPage(driver);
     }
 
+    @Step("click new button on Projects page")
     public NewProjectModal clockNewButton() {
-        log.info("Opening projects page");
+        log.info("Click new button on projects page");
         $("#createButton").click();
         return new NewProjectModal(driver);
     }
 
     public boolean isProjectExists(String projectName) {
+        log.info("validating name of new project in projects list");
+        $(".filters-block-items >div >input").sendKeys(projectName);
         try {
-            $$("tr >td >div >a.defect-title").should(itemWithText(projectName));
+            $$(".defect-title").should(itemWithText(projectName));
             return true;
         } catch (Exception exception) {
             return false;

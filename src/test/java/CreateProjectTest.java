@@ -5,29 +5,30 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 
 public class CreateProjectTest extends BaseTest {
-    @Test
+    @Test(description = "Creating project and fin it in list")
     public void projectShouldBeCreated() {
-
-        logInPage
+        boolean isPageOpened = logInPage
                 .openPage()
                 .IsPageOpened();
+        assertTrue(isPageOpened, "LogIn page doesn't open");
         logInPage
                 .logIn();
-        projectsPage
+        isPageOpened = projectsPage
                 .openPage()
                 .IsPageOpened();
-
+        assertTrue(isPageOpened, "Projects page doesn't open");
         Project project = ProjectFactory.get();
         projectsPage
                 .clockNewButton()
                 .createProject(project);
-        newProjectPage
+        isPageOpened = newProjectPage
                 .IsPageOpened();
-        boolean isExists = projectsPage
+        assertTrue(isPageOpened, "New Project page doesn't open");
+        isPageOpened = projectsPage
                 .openPage()
                 .isProjectExists(project.getProjectName());
-        assertTrue(isExists, "New project exists");
-
+        assertTrue(isPageOpened, "New project doesn't exist");
 
     }
+
 }

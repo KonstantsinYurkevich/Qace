@@ -1,18 +1,23 @@
-import com.codeborne.selenide.Condition;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertTrue;
+
 public class LogOutTest extends BaseTest {
-    @Test
+    @Test(description = "LogOut test")
     public void logOut() {
-        logInPage
+        boolean isPageOpened = logInPage
                 .openPage()
                 .IsPageOpened();
+        assertTrue(isPageOpened, "LogIn page doesn't open");
         logInPage
                 .logIn();
-        homePage
-                .IsPageOpened().should(Condition.exist);
+        isPageOpened = homePage
+                .IsPageOpened();
+        assertTrue(isPageOpened, "Projects page doesn't open");
         homePage
                 .logOut();
-        logInPage.IsPageOpened().should(Condition.exist);
+        isPageOpened = logInPage.IsPageOpened();
+        assertTrue(isPageOpened, "LogIn page doesn't open");
+
     }
 }

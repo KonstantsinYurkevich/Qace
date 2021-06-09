@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.SelenideElement;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import utils.PropertyReader;
@@ -15,6 +14,6 @@ public abstract class BasePage {
         this.driver = driver;
     }
 
-    public abstract SelenideElement IsPageOpened();
+    public abstract boolean IsPageOpened();
 
 }

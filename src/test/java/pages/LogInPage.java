@@ -1,7 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 
@@ -18,16 +18,18 @@ public class LogInPage extends BasePage {
 
 
     @Override
-    public SelenideElement IsPageOpened() {
-        return $(LOGIN_BUTTON).should(Condition.exist);
+    public boolean IsPageOpened() {
+        return $(LOGIN_BUTTON).isDisplayed();
     }
 
+    @Step("Opening logIn page")
     public LogInPage openPage() {
         log.info("Opening LogIn page");
         open("/login");
         return new LogInPage(driver);
     }
 
+    @Step("LogIn according data")
     public HomePage logIn() {
         log.info("Fill in login form and press button login");
         open("/login");

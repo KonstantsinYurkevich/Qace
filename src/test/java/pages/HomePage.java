@@ -1,7 +1,6 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +14,13 @@ public class HomePage extends BasePage {
     }
 
     @Override
-    public SelenideElement IsPageOpened() {
-        return $("#createButton").should(Condition.exist);
+    public boolean IsPageOpened() {
+        return $("#createButton").isDisplayed();
     }
 
+    @Step("LogOut from projects page")
     public LogInPage logOut() {
+        log.info("logout");
         $("#user-menu").click();
         $(By.cssSelector("a[href=\"https://app.qase.io/logout\"]")).click();
         return new LogInPage(driver);
