@@ -1,19 +1,24 @@
 package pages;
 
+import Base.Enum;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.WebDriver;
 import utils.PropertyReader;
+
+import static com.codeborne.selenide.Selenide.$;
 
 @Log4j2
 public abstract class BasePage {
-    WebDriver driver;
     String user = System.getenv().getOrDefault("QASE_USER", PropertyReader.getProperty("qase.user"));
     String password = System.getenv().getOrDefault("QASE_PASSWORD", PropertyReader.getProperty("qase.password"));
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-    }
 
     public abstract boolean IsPageOpened();
+
+    public LogInPage logOut() {
+        log.info("logout");
+        $(Enum.userMenuLocator.getValue()).click();
+        $(Enum.signOutLocator.getValue()).click();
+        return new LogInPage();
+    }
 
 }

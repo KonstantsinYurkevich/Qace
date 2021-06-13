@@ -9,6 +9,9 @@
             <class name="CreateProjectTest" />
             <class name="LogInTest" />
             <class name="LogOutTest" />
+            <class name="EditProjectTest" />
+            <class name="DeleteProjectFromProjectPageTest" />
+            <class name="DeleteProjectFromProjectsLstTest" />
         </classes>
     </test> <!-- Test -->
 </suite>
