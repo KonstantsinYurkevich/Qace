@@ -1,6 +1,7 @@
 package pages;
 
 import Base.Enum;
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import utils.PropertyReader;
 
@@ -14,6 +15,7 @@ public abstract class BasePage {
 
     public abstract boolean IsPageOpened();
 
+    @Step("LogOut")
     public LogInPage logOut() {
         log.info("logout");
         $(Enum.userMenuLocator.getValue()).click();

@@ -1,6 +1,7 @@
 package adapters;
 
 import com.google.gson.Gson;
+import io.qameta.allure.Step;
 import utils.PropertyReader;
 
 import static io.restassured.RestAssured.given;
@@ -20,6 +21,7 @@ public class BaseAdapter {
 
     Gson gsonReader = new Gson();
 
+    @Step("API post request")
     public String post(String body, int status, String url) {
         return
                 given().
@@ -34,7 +36,7 @@ public class BaseAdapter {
                         statusCode(status).
                         extract().body().asString();
     }
-
+    @Step("API get request")
     public String get(int status, String url) {
         return
                 given().
@@ -49,6 +51,7 @@ public class BaseAdapter {
                         extract().body().asString();
     }
 
+    @Step("API delete request")
     public String delete(int status, String url) {
         return
                 given().

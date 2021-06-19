@@ -38,6 +38,7 @@ public class ProjectsPage extends BasePage {
         return new NewProjectModal();
     }
 
+    @Step("Checking that project exists")
     public boolean isProjectExists(String projectName) {
         log.info("validating name of new project in projects list");
         $(Enum.searchLocator.getValue()).clear();
@@ -50,6 +51,7 @@ public class ProjectsPage extends BasePage {
         }
     }
 
+    @Step("Delete project")
     public void deleteProject(String projectName) {
         $(Enum.searchLocator.getValue()).clear();
         $(Enum.searchLocator.getValue()).sendKeys(projectName);
@@ -60,6 +62,7 @@ public class ProjectsPage extends BasePage {
 
     }
 
+    @Step("Submit")
     public void submit() {
         $(Enum.buttonUpdateAndCreateProjectLocator.getValue()).click();
     }

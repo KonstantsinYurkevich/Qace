@@ -1,6 +1,7 @@
 package pages;
 
 import Base.Enum;
+import io.qameta.allure.Step;
 
 import java.util.Objects;
 
@@ -15,6 +16,7 @@ public class ProjectPage extends BasePage {
         return $(Enum.projectAvatarLocator.getValue()).isDisplayed();
     }
 
+    @Step("Edit project title")
     public boolean editName(String newProjectName) {
         openSettings();
         $(Enum.inputTitleLocator.getValue()).clear();
@@ -25,6 +27,7 @@ public class ProjectPage extends BasePage {
 
     }
 
+    @Step("Edit project code")
     public boolean editCode(String newCode) {
         openSettings();
         $(Enum.inputCodeLocator.getValue()).clear();
@@ -35,6 +38,7 @@ public class ProjectPage extends BasePage {
 
     }
 
+    @Step("Edit project description")
     public boolean editDescription(String newDescription) {
         openSettings();
         $(Enum.inputDescriptionLocator.getValue()).clear();
@@ -45,6 +49,7 @@ public class ProjectPage extends BasePage {
 
     }
 
+    @Step("Edit project access type")
     public boolean editAccessType(String newAccessType) {
         openSettings();
         $$(Enum.accessTypeLocator.getValue()).findBy(value(newAccessType)).click();
@@ -53,6 +58,7 @@ public class ProjectPage extends BasePage {
 
     }
 
+    @Step("Edit project title, code, description, access type")
     public boolean editAllInfo(String newName, String newCode, String newDescription, String newAccessType) {
         openSettings();
         $(Enum.inputTitleLocator.getValue()).clear();
@@ -67,18 +73,21 @@ public class ProjectPage extends BasePage {
 
     }
 
+    @Step("Click button delete project")
     public void deleteProject() {
         openSettings();
         $(Enum.buttonDeleteProjectLocator.getValue()).click();
         submit();
     }
 
+    @Step("Open project setting")
     public void openSettings() {
         $(Enum.settingsLocator.getValue()).click();
         $$(Enum.projectSettingsPageLocator.getValue()).findBy(text(Enum.textSettings.getValue())).shouldBe(visible);
     }
 
 
+    @Step("Submit")
     public void submit() {
         $(Enum.buttonUpdateAndCreateProjectLocator.getValue()).click();
     }
