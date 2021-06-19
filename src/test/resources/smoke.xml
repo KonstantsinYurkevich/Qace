@@ -12,6 +12,7 @@
             <class name="Tests.EditProjectTest" />
             <class name="Tests.DeleteProjectFromProjectPageTest" />
             <class name="Tests.DeleteProjectFromProjectsLstTest" />
+            <class name="Tests.ApiProjectCreateTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>
