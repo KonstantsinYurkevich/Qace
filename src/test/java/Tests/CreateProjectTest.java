@@ -1,3 +1,5 @@
+package Tests;
+
 import modals.Project;
 import modals.ProjectFactory;
 import org.testng.annotations.Test;
@@ -26,7 +28,7 @@ public class CreateProjectTest extends BaseTest {
         assertTrue(isPageOpened, "New Project page doesn't open");
         isPageOpened = projectsPage
                 .openPage()
-                .isProjectExists(project.getProjectName());
+                .isProjectExists(project.getTitle());
         assertTrue(isPageOpened, "New project doesn't exist");
 
     }

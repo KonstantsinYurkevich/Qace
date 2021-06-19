@@ -21,8 +21,8 @@ public class NewProjectModal extends BasePage {
     @Step("Creating new project according data")
     public NewProjectPage createProject(Project project) {
         log.info("Fill in form of new project according data");
-        $(Enum.inputTitleLocator.getValue()).sendKeys(project.getProjectName());
-        $(Enum.inputCodeLocator.getValue()).sendKeys(project.getProjectCode());
+        $(Enum.inputTitleLocator.getValue()).sendKeys(project.getTitle());
+        $(Enum.inputCodeLocator.getValue()).sendKeys(project.getCode());
         $(Enum.inputDescriptionLocator.getValue()).sendKeys(project.getDescription());
         save();
         return new NewProjectPage();

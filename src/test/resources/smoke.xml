@@ -6,12 +6,12 @@
     </listeners>
     <test name="Test package 1">
         <classes>
-            <class name="CreateProjectTest" />
-            <class name="LogInTest" />
-            <class name="LogOutTest" />
-            <class name="EditProjectTest" />
-            <class name="DeleteProjectFromProjectPageTest" />
-            <class name="DeleteProjectFromProjectsLstTest" />
+            <class name="Tests.CreateProjectTest" />
+            <class name="Tests.LogInTest" />
+            <class name="Tests.LogOutTest" />
+            <class name="Tests.EditProjectTest" />
+            <class name="Tests.DeleteProjectFromProjectPageTest" />
+            <class name="Tests.DeleteProjectFromProjectsLstTest" />
         </classes>
     </test> <!-- Test -->
 </suite>

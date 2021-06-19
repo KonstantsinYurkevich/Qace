@@ -1,3 +1,5 @@
+package Tests;
+
 import com.codeborne.selenide.Condition;
 import org.testng.annotations.Test;
 
