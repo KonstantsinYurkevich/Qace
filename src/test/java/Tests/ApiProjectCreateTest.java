@@ -255,7 +255,7 @@ public class ApiProjectCreateTest {
     public void fieldCodeShouldAcceptTwoSymbols() {
         Project project = Project.builder()
                 .title(randomString(10))
-                .code(randomString(1))
+                .code(randomString(2))
                 .build();
         ResponseStatus actual = new ProjectAdapter().create(project, 200);
         assertTrue(actual.isStatus());
