@@ -1,3 +1,5 @@
+package Tests;
+
 import modals.Project;
 import modals.ProjectFactory;
 import org.testng.annotations.Test;
@@ -5,7 +7,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-public class DeleteProjectFromProjectPageTest extends BaseTest {
+public class DeleteProjectFromProjectsLstTest extends BaseTest {
     @Test
     public void projectShouldBeDeleted() {
         boolean isPageOpened = logInPage
@@ -27,16 +29,12 @@ public class DeleteProjectFromProjectPageTest extends BaseTest {
         assertTrue(isPageOpened);
         isPageOpened = projectsPage
                 .openPage()
-                .isProjectExists(project.getProjectName());
+                .isProjectExists(project.getTitle());
         assertTrue(isPageOpened);
-        isPageOpened = projectsPage
-                .openProject(project.getProjectName())
-                .IsPageOpened();
-        assertTrue(isPageOpened);
-        projectPage
-                .deleteProject();
+        projectsPage
+                .deleteProject(project.getTitle());
         boolean isProjectExists = projectsPage
-                .isProjectExists(project.getProjectName());
+                .isProjectExists(project.getTitle());
         assertFalse(isProjectExists);
     }
 }

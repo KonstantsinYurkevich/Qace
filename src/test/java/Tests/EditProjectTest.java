@@ -1,3 +1,5 @@
+package Tests;
+
 import modals.Project;
 import modals.ProjectFactory;
 import org.testng.annotations.Test;
@@ -19,16 +21,16 @@ public class EditProjectTest extends BaseTest {
                 .createProject(project);
         projectsPage
                 .openPage()
-                .isProjectExists(project.getProjectName());
+                .isProjectExists(project.getTitle());
         projectsPage
-                .openProject(project.getProjectName());
+                .openProject(project.getTitle());
         Project infoForChangeAll = ProjectFactory.get();
         Project infoForChangeSeparate = ProjectFactory.get();
         boolean apply = projectPage
-                .editName(infoForChangeSeparate.getProjectName());
+                .editName(infoForChangeSeparate.getTitle());
         assertTrue(apply);
         apply = projectPage
-                .editCode(infoForChangeSeparate.getProjectCode());
+                .editCode(infoForChangeSeparate.getCode());
         assertTrue(apply);
         apply = projectPage
                 .editDescription(infoForChangeSeparate.getDescription());
@@ -37,7 +39,7 @@ public class EditProjectTest extends BaseTest {
                 .editAccessType(accessTypePublic);
         assertTrue(apply);
         apply = projectPage
-                .editAllInfo(infoForChangeAll.getProjectName(), infoForChangeAll.getProjectCode(), infoForChangeAll.getDescription(),
+                .editAllInfo(infoForChangeAll.getTitle(), infoForChangeAll.getCode(), infoForChangeAll.getDescription(),
                         accessTypePrivate);
         assertTrue(apply);
     }
